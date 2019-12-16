@@ -55,14 +55,20 @@ class BeforeAfterSlider : RelativeLayout, ClipDrawableProcessorTask.OnAfterImage
      * set changed image
      */
     fun setAfterImage(imageUri: String) {
-        ClipDrawableProcessorTask<String>(after_image_view_id, seekbar_id, context, this).execute(imageUri)
+        if (imageUri.isNotBlank()) {
+            val task = ClipDrawableProcessorTask<String>(after_image_view_id, seekbar_id, context, this)
+            task.execute(imageUri)
+        }
     }
 
     /**
      * set changed image
      */
     fun setAfterImage(imageDrawable: Drawable?) {
-        ClipDrawableProcessorTask<Drawable>(after_image_view_id, seekbar_id, context, this).execute(imageDrawable)
+        imageDrawable?.let {
+            val task = ClipDrawableProcessorTask<Drawable>(after_image_view_id, seekbar_id, context, this)
+            task.execute(it)
+        }
     }
 
     /**
