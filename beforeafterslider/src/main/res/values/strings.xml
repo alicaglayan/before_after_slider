@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Beforeafterslider</string>
+    <string name="before_image">Before Image</string>
+    <string name="after_image">After Image</string>
 </resources>
